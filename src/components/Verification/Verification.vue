@@ -1,0 +1,74 @@
+<template>
+  <div class="container">
+    <div class="row justify-content-center h-100">
+      <div class="col col-md-8 col-lg-6">
+        <div class="card tall">
+          <div class="card-header p-0">
+            <div class="row justify-content-center w-100 m-0">
+              <div
+                @click="setMode('login')"
+                class="col border border-left-0 pt-2 pb-2 clickable"
+                :class="{ engaged: mode === 'login' }"
+              >
+                <h5>Login</h5>
+              </div>
+              <div
+                @click="setMode('register')"
+                class="col border border-right-0 pt-2 pb-2 clickable"
+                :class="{ engaged: mode === 'register' }"
+              >
+                <h5>Register</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <login v-if="mode === 'login'" />
+            <register v-if="mode === 'register'" />
+          </div>
+          <div class="card-footer">
+            <button v-if="mode === 'login'" class="btn btn-secondary w-50">
+              Login
+            </button>
+            <button v-if="mode === 'register'" class="btn btn-secondary w-50">
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import Login from "@/components/Widgets/Login.vue";
+import Register from "@/components/Widgets/Register.vue";
+@Component({
+  components: { Register, Login }
+})
+export default class Verification extends Vue {
+  private mode = "login";
+
+  public setMode(mode: string) {
+    this.mode = mode;
+    console.log(this.mode);
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  background-color: #8f8f8f;
+  color: white;
+}
+.engaged {
+  background-color: white;
+  color: #333232;
+}
+  .tall{
+    height: 30rem;
+  }
+</style>

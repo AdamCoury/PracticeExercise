@@ -1,6 +1,15 @@
 <template>
-  <div>
-    Login
+  <div class="row justify-content-center container m-0">
+    <form>
+      <div class="row form-group">
+        <label for="username">Username</label>
+        <input class="form-control" id="username" />
+      </div>
+      <div class="row form-group">
+        <label for="password">Password</label>
+        <input class="form-control" id="password" />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -11,4 +20,8 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Login extends Vue {}
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+label {
+  font-weight: bold;
+}
+</style>
