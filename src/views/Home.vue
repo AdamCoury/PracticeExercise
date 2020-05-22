@@ -1,7 +1,10 @@
 <template>
   <div class="home">
+    <div class="container">
+      <img src="../assets/EELogoResized.png" class="img-fluid" alt="Logo">
+    </div>
     <verification
-      class="mt-5"
+      class="mt-2"
     />
   </div>
 </template>
