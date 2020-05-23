@@ -1,17 +1,70 @@
 <template>
-  <div class="container about">
-    <h1 style="color: white">This is an about page</h1>
+  <div class="container about" v-if="initialized">
+    <h1 style="color: white">{{ client.name }}</h1>
+    <node v-bind:team="client.team"></node>
   </div>
 </template>
+
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import loadData from "@/services/LoadData";
+import Node from "@/components/Widgets/Node.vue";
 
-@Component
+@Component({
+  components: { Node }
+})
 export default class OurTeam extends Vue {
-  async mounted() {
-    console.log("Got to home");
-    console.log(await loadData());
+  private initialized = false;
+  private client = {
+    name: "Client 1",
+    team: {
+      name: "Jeff",
+      title: "CEO",
+      reports: [
+        {
+          name: "Tina",
+          title: "CFO",
+          reports: [
+            {
+              name: "Mark",
+              title: "Finance Officer II"
+            },
+            {
+              name: "Brad",
+              title: "Finance Officer I"
+            }
+          ]
+        },
+        {
+          name: "Cornelius",
+          title: "CTO",
+          reports: [
+            {
+              name: "Soon-Yi",
+              title: "Architect",
+              reports: [
+                {
+                  name: "Bob",
+                  title: "Principal Engineer",
+                  reports: [
+                    {
+                      name: "Hanna",
+                      title: "Senior Software Engineer IV"
+                    },
+                    {
+                      name: "Jeff",
+                      title: "QA Automation Developer"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  };
+  mounted() {
+    this.initialized = true;
   }
 }
 </script>

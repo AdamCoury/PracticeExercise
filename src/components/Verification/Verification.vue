@@ -3,25 +3,31 @@
     <div class="row justify-content-center h-100">
       <div class="col col-md-8 col-lg-6">
         <div class="card tall">
-          <div class="card-header p-0">
+          <div class="card-header p-0 border-bottom-0">
             <div class="row justify-content-center w-100 m-0">
               <div
                 @click="setMode('login')"
-                class="col border border-left-0 pt-2 pb-2 clickable"
-                :class="{ engaged: mode === 'login' }"
+                class="col pt-2 pb-2 clickable"
+                :class="{
+                  engaged: mode === 'login',
+                  'not-engaged': mode !== 'login'
+                }"
               >
                 <h5>Login</h5>
               </div>
               <div
                 @click="setMode('register')"
-                class="col border border-right-0 pt-2 pb-2 clickable"
-                :class="{ engaged: mode === 'register' }"
+                class="col pt-2 pb-2 clickable"
+                :class="{
+                  engaged: mode === 'register',
+                  'not-engaged': mode !== 'register'
+                }"
               >
                 <h5>Register</h5>
               </div>
             </div>
           </div>
-          <div class="card-body">
+          <div class="card-body border-top-0">
             <login v-if="mode === 'login'" />
             <register v-if="mode === 'register'" />
           </div>
@@ -65,10 +71,17 @@ export default class Verification extends Vue {
   color: white;
 }
 .engaged {
+  color: #961a1a;
   background-color: white;
-  color: #333232;
 }
-  .tall{
-    height: 30rem;
-  }
+.not-engaged {
+  color: white;
+  background-color: #961a1a;
+}
+h5 {
+  font-weight: bold;
+}
+.tall {
+  height: 30rem;
+}
 </style>

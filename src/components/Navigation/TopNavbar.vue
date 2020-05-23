@@ -34,7 +34,7 @@ body {
 }
 
   .background {
-    background-color: lightgray;
+    background-color: #eeeeee;
   }
 
   .color-red{
@@ -43,5 +43,8 @@ body {
 
   .color-white {
     color: white;
+  }
+  a{
+    font-family: 'Roboto', sans-serif;
   }
 </style>
