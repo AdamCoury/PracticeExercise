@@ -1,10 +1,16 @@
 <template>
-  <div>
-    <div style="color: white">
-      {{team.name}}
+  <div class="col">
+    <div style="color: white" class="row">
+      {{ team.name }}
     </div>
     <div v-if="team.reports && team.reports.length > 0" style="color: white">
-      <node v-for="teams in team.reports" v-bind:team="teams" v-bind:key="teams.name"></node>
+      <div class="row">
+        <node
+          v-for="teams in team.reports"
+          v-bind:team="teams"
+          v-bind:key="teams.name"
+        ></node>
+      </div>
     </div>
   </div>
 </template>
