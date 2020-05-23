@@ -7,36 +7,36 @@
             <div class="row justify-content-center w-100 m-0">
               <div
                 @click="setMode('login')"
-                class="col pt-2 pb-2 clickable"
+                class="col pt-2 pb-2"
                 :class="{
                   engaged: mode === 'login',
-                  'not-engaged': mode !== 'login'
+                  'not-engaged clickable': mode !== 'login'
                 }"
               >
-                <h5>Login</h5>
+                <h5 class="work-sans">Login</h5>
               </div>
               <div
                 @click="setMode('register')"
-                class="col pt-2 pb-2 clickable"
+                class="col pt-2 pb-2"
                 :class="{
                   engaged: mode === 'register',
-                  'not-engaged': mode !== 'register'
+                  'not-engaged clickable': mode !== 'register'
                 }"
               >
-                <h5>Register</h5>
+                <h5 class="work-sans">Register</h5>
               </div>
             </div>
           </div>
           <div class="card-body border-top-0">
-            <h3>Welcome!</h3>
+            <h3 class="work-sans">Welcome!</h3>
             <login v-if="mode === 'login'" />
             <register v-if="mode === 'register'" />
           </div>
           <div class="card-footer">
-            <button v-if="mode === 'login'" class="btn btn-secondary btn-rounded w-50">
+            <button v-if="mode === 'login'" class="btn btn-secondary btn-rounded w-50 work-sans">
               Login
             </button>
-            <button v-if="mode === 'register'" class="btn btn-secondary btn-rounded w-50">
+            <button v-if="mode === 'register'" class="btn btn-secondary btn-rounded w-50 work-sans">
               Register
             </button>
           </div>
@@ -68,8 +68,8 @@ export default class Verification extends Vue {
   cursor: pointer;
 }
 .clickable:hover {
-  background-color: #8f8f8f;
-  color: white;
+  background-color: #333232;
+  color: #ffffff;
 }
 .engaged {
   color: #961a1a;
@@ -81,8 +81,15 @@ export default class Verification extends Vue {
 }
 h5 {
   font-weight: bold;
+  font-size: 20px;
 }
   .btn-rounded {
     border-radius: 30px;
+  }
+
+  h3{
+    color: #333232;
+    font-weight: bold;
+    font-size: 20px;
   }
 </style>

@@ -5,13 +5,13 @@
       style="background-color: #961A1A"
     >
       <div class="container ml-1 justify-content-start">
-        <a class="navbar-brand pt-0 pb-0" style="color: white">ESPORTS ENGINE</a>
+        <a class="navbar-brand pt-0 pb-0 navtitle" style="color: white">ESPORTS ENGINE</a>
         <ul class="navbar-nav w-25">
           <li :class="{'background': $route.name==='Home'}" class="nav-item active mr-2 w-50 pt-2 pb-2">
-            <router-link :class="{'color-red': $route.name==='Home', 'color-white': $route.name!=='Home'}" class="routeItem" to="/">Home</router-link>
+            <router-link :class="{'color-red': $route.name==='Home', 'color-white': $route.name!=='Home'}" class="routeItem navheader" to="/">Home</router-link>
           </li>
           <li :class="{'background': $route.name==='Our Team'}" class="nav-item active ml-2 w-50 pt-2 pb-2">
-            <router-link class="routeItem" to="/our-team" :class="{'color-red': $route.name==='Our Team', 'color-white': $route.name!=='Our Team'}">Our Team</router-link>
+            <router-link class="routeItem navheader" to="/our-team" :class="{'color-red': $route.name==='Our Team', 'color-white': $route.name!=='Our Team'}">Our Team</router-link>
           </li>
         </ul>
       </div>
@@ -44,7 +44,12 @@ body {
   .color-white {
     color: white;
   }
-  a{
+  .navheader{
     font-family: 'Roboto', sans-serif;
+  }
+
+  .navtitle{
+    font-family: "Work Sans", sans-serif;
+    font-size: 25px;
   }
 </style>

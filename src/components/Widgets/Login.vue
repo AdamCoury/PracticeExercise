@@ -4,17 +4,17 @@
       <div class="row input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"
-            ><fa-icon :icon="['fas', 'user']"></fa-icon
+            ><fa-icon :icon="['fas', 'user']" :color="'#961A1A'"></fa-icon
           ></span>
-          <input class="form-control" id="username" placeholder="Username" />
+          <input class="form-control work-sans" id="username" placeholder="Username" />
         </div>
       </div>
       <div class="row input-group mt-3">
         <div class="input-group-prepend">
           <span class="input-group-text"
-            ><fa-icon :icon="['fas', 'lock']"></fa-icon
+            ><fa-icon :icon="['fas', 'lock']" :color="'#961A1A'"></fa-icon
           ></span>
-          <input class="form-control" id="password" placeholder="Password" />
+          <input class="form-control work-sans" id="password" placeholder="Password" />
         </div>
       </div>
     </form>

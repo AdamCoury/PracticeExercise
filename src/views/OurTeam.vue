@@ -1,6 +1,11 @@
 <template>
-  <div class="container about" v-if="initialized">
-    <h1 style="color: white">{{ client.name }}</h1>
+  <div class="container about pt-5" v-if="initialized">
+    <h1
+      style="color: white; font-weight: bold; text-transform: uppercase"
+      class="work-sans"
+    >
+      {{ client.name }}
+    </h1>
     <div class="row justify-content-center">
       <div class="col">
         <node v-bind:team="client.team"></node>

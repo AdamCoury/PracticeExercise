@@ -13,17 +13,21 @@
           >
             <div class="col">
               <div class="row justify-content-center">
-                {{ team.name }}
+                <div class="work-sans">
+                  {{ team.name }}
+                </div>
               </div>
               <div class="row justify-content-center">
-                {{ team.title }}
+                <div class="work-sans">
+                  {{ team.title }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <hr v-if="team.reports && team.reports.length > 1" class="mb-0"/>
+        <hr v-if="team.reports && team.reports.length > 1" class="mb-0 margining"/>
       </div>
     </div>
     <div v-if="team.reports && team.reports.length > 0" style="color: white">
