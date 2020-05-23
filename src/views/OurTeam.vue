@@ -2,7 +2,7 @@
   <div class="container about" v-if="initialized">
     <h1 style="color: white">{{ client.name }}</h1>
     <div class="row justify-content-center">
-      <div class="col col-md-8 col-lg-6">
+      <div class="col">
         <node v-bind:team="client.team"></node>
       </div>
     </div>

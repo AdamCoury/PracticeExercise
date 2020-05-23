@@ -1,7 +1,24 @@
 <template>
   <div class="col">
-    <div style="color: white" class="row">
-      {{ team.name }}
+    <div
+      class="card mt-5"
+      style="margin: auto; width: 100px; border: #961a1a 3px solid"
+    >
+      <div class="card-body">
+        <div
+          style="color: #961a1a; font-weight: bold"
+          class="row justify-content-center"
+        >
+          <div class="col">
+            <div class="row justify-content-center">
+              {{ team.name }}
+            </div>
+            <div class="row justify-content-center">
+              {{ team.title }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div v-if="team.reports && team.reports.length > 0" style="color: white">
       <div class="row">
@@ -35,4 +52,4 @@ export default class Node extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>
