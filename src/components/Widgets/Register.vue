@@ -1,21 +1,37 @@
 <template>
   <div class="row justify-content-center container m-0">
     <form>
-      <div class="row form-group">
-        <label for="email">Email</label>
-        <input class="form-control" id="email" />
+      <div class="row input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+          ><fa-icon :icon="['fas', 'envelope']"></fa-icon
+          ></span>
+          <input class="form-control" id="Email" placeholder="Email" />
+        </div>
       </div>
-      <div class="row form-group">
-        <label for="username">Username</label>
-        <input class="form-control" id="username" />
+      <div class="row input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+          ><fa-icon :icon="['fas', 'user']"></fa-icon
+          ></span>
+          <input class="form-control" id="username" placeholder="Username" />
+        </div>
       </div>
-      <div class="row form-group">
-        <label for="password">Password</label>
-        <input class="form-control" id="password" />
+      <div class="row input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+          ><fa-icon :icon="['fas', 'lock']"></fa-icon
+          ></span>
+          <input class="form-control" id="password" placeholder="Password" />
+        </div>
       </div>
-      <div class="row form-group">
-        <label for="conf-password">Confirm Password</label>
-        <input class="form-control" id="conf-password" />
+      <div class="row input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+          ><fa-icon :icon="['fas', 'key']"></fa-icon
+          ></span>
+          <input class="form-control" id="confirm-password" placeholder="Confirm Password" />
+        </div>
       </div>
     </form>
   </div>
@@ -29,7 +45,7 @@ export default class Register extends Vue {}
 </script>
 
 <style scoped lang="scss">
-  label{
-    font-weight: bold;
-  }
+.input-group{
+  margin: auto;
+}
 </style>

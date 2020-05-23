@@ -1,13 +1,21 @@
 <template>
   <div class="row justify-content-center container m-0">
     <form>
-      <div class="row form-group">
-        <label for="username">Username</label>
-        <input class="form-control" id="username" />
+      <div class="row input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+            ><fa-icon :icon="['fas', 'user']"></fa-icon
+          ></span>
+          <input class="form-control" id="username" placeholder="Username" />
+        </div>
       </div>
-      <div class="row form-group">
-        <label for="password">Password</label>
-        <input class="form-control" id="password" />
+      <div class="row input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+            ><fa-icon :icon="['fas', 'lock']"></fa-icon
+          ></span>
+          <input class="form-control" id="password" placeholder="Password" />
+        </div>
       </div>
     </form>
   </div>
@@ -21,7 +29,7 @@ export default class Login extends Vue {}
 </script>
 
 <style scoped lang="scss">
-label {
-  font-weight: bold;
-}
+  .input-group{
+    margin: auto;
+  }
 </style>

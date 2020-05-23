@@ -28,14 +28,15 @@
             </div>
           </div>
           <div class="card-body border-top-0">
+            <h3>Welcome!</h3>
             <login v-if="mode === 'login'" />
             <register v-if="mode === 'register'" />
           </div>
           <div class="card-footer">
-            <button v-if="mode === 'login'" class="btn btn-secondary w-50">
+            <button v-if="mode === 'login'" class="btn btn-secondary btn-rounded w-50">
               Login
             </button>
-            <button v-if="mode === 'register'" class="btn btn-secondary w-50">
+            <button v-if="mode === 'register'" class="btn btn-secondary btn-rounded w-50">
               Register
             </button>
           </div>
@@ -81,7 +82,7 @@ export default class Verification extends Vue {
 h5 {
   font-weight: bold;
 }
-.tall {
-  height: 30rem;
-}
+  .btn-rounded {
+    border-radius: 30px;
+  }
 </style>

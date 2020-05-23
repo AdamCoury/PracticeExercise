@@ -1,23 +1,29 @@
 <template>
   <div class="col">
-    <div
-      class="card mt-5"
-      style="margin: auto; width: 100px; border: #961a1a 3px solid"
-    >
-      <div class="card-body">
-        <div
-          style="color: #961a1a; font-weight: bold"
-          class="row justify-content-center"
-        >
-          <div class="col">
-            <div class="row justify-content-center">
-              {{ team.name }}
-            </div>
-            <div class="row justify-content-center">
-              {{ team.title }}
+    <div>
+      <div class="vl"></div>
+      <div
+        class="card mt-5"
+        style="margin: auto; width: 100px; border: #961a1a 3px solid"
+      >
+        <div class="card-body">
+          <div
+            style="color: #961a1a; font-weight: bold"
+            class="row justify-content-center"
+          >
+            <div class="col">
+              <div class="row justify-content-center">
+                {{ team.name }}
+              </div>
+              <div class="row justify-content-center">
+                {{ team.title }}
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <hr v-if="team.reports && team.reports.length > 1" class="mb-0"/>
       </div>
     </div>
     <div v-if="team.reports && team.reports.length > 0" style="color: white">
@@ -45,11 +51,20 @@ interface Team {
 export default class Node extends Vue {
   @Prop()
   team!: Team;
-
-  mounted() {
-    console.log(this.team.name);
-  }
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+hr {
+  background-color: white;
+  width: 50%;
+  height: 2px;
+}
+.vl {
+  border-right: 3px solid white;
+  height: 75px;
+  left: 50%;
+  position: absolute;
+  top: 0;
+}
+</style>

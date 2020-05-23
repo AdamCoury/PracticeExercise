@@ -4,7 +4,7 @@
       <img src="../assets/EELogoResized.png" class="img-fluid" alt="Logo">
     </div>
     <verification
-      class="mt-2"
+      class="mt-5"
     />
   </div>
 </template>
