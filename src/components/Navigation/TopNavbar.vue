@@ -1,43 +1,47 @@
 <template>
   <div>
     <div
-      class="navbar navbar-expand-lg  h-100 m-0 pt-0 pb-0 h-100"
+      class="navbar navbar-expand-md pt-0 pb-0"
       style="background-color: #961A1A"
     >
       <div class="container ml-1 justify-content-start">
-        <a class="navbar-brand pt-0 pb-0 navtitle" style="color: white"
-          >ESPORTS ENGINE</a
-        >
-        <ul class="navbar-nav w-25">
-          <li
-            :class="{ background: $route.name === 'Home' }"
-            class="nav-item active mr-2 w-50 pt-2 pb-2"
+        <div class="row w-100 mobile-styling">
+          <a class="navbar-brand pt-0 pb-0 navtitle" style="color: white"
+            >ESPORTS ENGINE</a
           >
-            <router-link
-              :class="{
-                'color-red': $route.name === 'Home',
-                'color-white': $route.name !== 'Home'
-              }"
-              class="routeItem navheader"
-              to="/"
-              >Home</router-link
+          <ul class="navbar-nav w-50">
+            <li
+              :class="{ background: $route.name === 'Home' }"
+              class="nav-item active w-100 pt-2 pb-2"
+              @click="sendHome()"
             >
-          </li>
-          <li
-            :class="{ background: $route.name === 'Our Team' }"
-            class="nav-item active ml-2 w-50 pt-2 pb-2"
-          >
-            <router-link
-              class="routeItem navheader"
-              to="/our-team"
-              :class="{
-                'color-red': $route.name === 'Our Team',
-                'color-white': $route.name !== 'Our Team'
-              }"
-              >Our Team</router-link
+              <router-link
+                :class="{
+                  'color-red': $route.name === 'Home',
+                  'color-white': $route.name !== 'Home'
+                }"
+                class="routeItem navheader"
+                to="/"
+                >Home</router-link
+              >
+            </li>
+            <li
+              :class="{ background: $route.name === 'Our Team' }"
+              class="nav-item active w-100 pt-2 pb-2"
+              @click="sendOurTeam()"
             >
-          </li>
-        </ul>
+              <router-link
+                class="routeItem navheader"
+                to="/our-team"
+                :class="{
+                  'color-red': $route.name === 'Our Team',
+                  'color-white': $route.name !== 'Our Team'
+                }"
+                >Our Team</router-link
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -47,7 +51,14 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class TopNavbar extends Vue {}
+export default class TopNavbar extends Vue {
+  sendHome() {
+    this.$router.push({ name: "Home" });
+  }
+  sendOurTeam() {
+    this.$router.push({ name: "Our Team" });
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -56,6 +67,10 @@ body {
   height: 100%;
 }
 
+li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
 .background {
   background-color: #eeeeee;
 }
@@ -74,5 +89,20 @@ body {
 .navtitle {
   font-family: "Work Sans", sans-serif;
   font-size: 25px;
+}
+
+@media (min-width: 320px) and (max-width: 450px) {
+  .justify-content-start {
+    justify-content: center !important;
+  }
+  .mobile-styling {
+    justify-content: center !important;
+  }
+  ul {
+    width: 100% !important;
+  }
+  .ml-1 {
+    margin-left: 0 !important;
+  }
 }
 </style>

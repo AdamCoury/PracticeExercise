@@ -4,11 +4,12 @@
       style="color: white; font-weight: bold; text-transform: uppercase"
       class="work-sans"
     >
-      {{ client.name }}
+      {{ client[0].name }}
     </h1>
     <div class="row justify-content-center">
       <div class="col">
-        <node v-bind:team="client.team" :first="true"></node>
+        <!-- THE JSON PROVIDED WAS IN AN ARRAY SO I PULLED FROM [0]. IF NOT LEFT IN AN ARRAY ORIGINALLY AND PASSED STRICTLY AS JSON THIS WILL NEED TO CHANGE -->
+        <node v-bind:team="client[0].team" :first="true"></node>
       </div>
     </div>
   </div>
@@ -17,64 +18,20 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Node from "@/components/Widgets/Node.vue";
+import { IClient } from "@/services/LoadData";
+import loadData from "@/services/LoadData";
 
 @Component({
   components: { Node }
 })
 export default class OurTeam extends Vue {
   private initialized = false;
-  private client = {
-    name: "Client 1",
-    team: {
-      name: "Jeff",
-      title: "CEO",
-      reports: [
-        {
-          name: "Tina",
-          title: "CFO",
-          reports: [
-            {
-              name: "Mark",
-              title: "Finance Officer II"
-            },
-            {
-              name: "Brad",
-              title: "Finance Officer I"
-            }
-          ]
-        },
-        {
-          name: "Cornelius",
-          title: "CTO",
-          reports: [
-            {
-              name: "Soon-Yi",
-              title: "Architect",
-              reports: [
-                {
-                  name: "Bob",
-                  title: "Principal Engineer",
-                  reports: [
-                    {
-                      name: "Hanna",
-                      title: "Senior Software Engineer IV"
-                    },
-                    {
-                      name: "Jeff",
-                      title: "QA Automation Developer"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  };
+  private client: IClient | null = null;
 
   mounted() {
+    this.client = loadData();
     this.initialized = true;
+    console.log(this.client);
   }
 }
 </script>

@@ -68,9 +68,10 @@ export default class Node extends Vue {
 <style scoped lang="scss">
 hr {
   background-color: white;
-  max-width: 52%;
+  width: 80%;
   height: 4px;
   margin-top: 0;
+  display: flex;
 }
 .vl {
   border-right: 4px solid white;
@@ -108,7 +109,7 @@ hr {
   }
   hr {
     background-color: white;
-    max-width: 57%;
+    width: 80%;
     height: 4px;
     margin-top: 0;
   }
