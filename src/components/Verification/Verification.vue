@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center h-100">
       <div class="col col-md-8 col-lg-6">
-        <div class="card tall">
+        <div class="card w-75" style="margin: auto">
           <div class="card-header p-0 border-bottom-0">
             <div class="row justify-content-center w-100 m-0">
               <div

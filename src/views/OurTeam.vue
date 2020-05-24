@@ -8,7 +8,7 @@
     </h1>
     <div class="row justify-content-center">
       <div class="col">
-        <node v-bind:team="client.team"></node>
+        <node v-bind:team="client.team" :first="true"></node>
       </div>
     </div>
   </div>
@@ -72,6 +72,7 @@ export default class OurTeam extends Vue {
       ]
     }
   };
+
   mounted() {
     this.initialized = true;
   }
