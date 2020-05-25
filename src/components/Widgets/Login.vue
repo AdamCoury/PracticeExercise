@@ -6,7 +6,12 @@
           <span class="input-group-text"
             ><fa-icon :icon="['fas', 'user']" :color="'#961A1A'"></fa-icon
           ></span>
-          <input class="form-control work-sans" id="username" placeholder="Username" />
+          <input
+            class="form-control work-sans"
+            id="username"
+            placeholder="Username"
+            v-model="username"
+          />
         </div>
       </div>
       <div class="row input-group mt-3">
@@ -14,7 +19,12 @@
           <span class="input-group-text"
             ><fa-icon :icon="['fas', 'lock']" :color="'#961A1A'"></fa-icon
           ></span>
-          <input class="form-control work-sans" id="password" placeholder="Password" />
+          <input
+            class="form-control work-sans"
+            id="password"
+            placeholder="Password"
+            v-model="password"
+          />
         </div>
       </div>
     </form>
@@ -25,11 +35,14 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class Login extends Vue {}
+export default class Login extends Vue {
+  private username = "";
+  private password = "";
+}
 </script>
 
 <style scoped lang="scss">
-  .input-group{
-    margin: auto;
-  }
+.input-group {
+  margin: auto;
+}
 </style>

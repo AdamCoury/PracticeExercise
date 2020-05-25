@@ -67,7 +67,7 @@ body {
   height: 100%;
 }
 
-li:hover{
+li:hover {
   cursor: pointer;
   text-decoration: underline;
 }

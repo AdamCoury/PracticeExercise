@@ -7,7 +7,7 @@
             <div class="row justify-content-center w-100 m-0">
               <div
                 @click="setMode('login')"
-                class="col pt-2 pb-2"
+                class="col pt-2 pb-2 login"
                 :class="{
                   engaged: mode === 'login',
                   'not-engaged clickable': mode !== 'login'
@@ -17,7 +17,7 @@
               </div>
               <div
                 @click="setMode('register')"
-                class="col pt-2 pb-2"
+                class="col pt-2 pb-2 register"
                 :class="{
                   engaged: mode === 'register',
                   'not-engaged clickable': mode !== 'register'
@@ -33,10 +33,16 @@
             <register v-if="mode === 'register'" />
           </div>
           <div class="card-footer">
-            <button v-if="mode === 'login'" class="btn btn-secondary btn-rounded w-50 work-sans">
+            <button
+              v-if="mode === 'login'"
+              class="btn btn-secondary btn-rounded w-50 work-sans"
+            >
               Login
             </button>
-            <button v-if="mode === 'register'" class="btn btn-secondary btn-rounded w-50 work-sans">
+            <button
+              v-if="mode === 'register'"
+              class="btn btn-secondary btn-rounded w-50 work-sans"
+            >
               Register
             </button>
           </div>
@@ -54,11 +60,10 @@ import Register from "@/components/Widgets/Register.vue";
   components: { Register, Login }
 })
 export default class Verification extends Vue {
-  private mode = "login";
+  public mode = "login";
 
   public setMode(mode: string) {
     this.mode = mode;
-    console.log(this.mode);
   }
 }
 </script>
@@ -83,13 +88,13 @@ h5 {
   font-weight: bold;
   font-size: 20px;
 }
-  .btn-rounded {
-    border-radius: 30px;
-  }
+.btn-rounded {
+  border-radius: 30px;
+}
 
-  h3{
-    color: #333232;
-    font-weight: bold;
-    font-size: 20px;
-  }
+h3 {
+  color: #333232;
+  font-weight: bold;
+  font-size: 20px;
+}
 </style>

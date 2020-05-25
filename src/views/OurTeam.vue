@@ -31,7 +31,6 @@ export default class OurTeam extends Vue {
   mounted() {
     this.client = loadData();
     this.initialized = true;
-    console.log(this.client);
   }
 }
 </script>
