@@ -10,6 +10,8 @@
             class="form-control work-sans"
             id="Email"
             placeholder="Email"
+            v-model="email"
+            type="email"
           />
         </div>
       </div>
@@ -22,6 +24,7 @@
             class="form-control work-sans"
             id="username"
             placeholder="Username"
+            v-model="username"
           />
         </div>
       </div>
@@ -34,6 +37,8 @@
             class="form-control work-sans"
             id="password"
             placeholder="Password"
+            v-model="password"
+            type="password"
           />
         </div>
       </div>
@@ -46,18 +51,68 @@
             class="form-control work-sans"
             id="confirm-password"
             placeholder="Confirm Password"
+            v-model="confirmPassword"
+            type="password"
           />
         </div>
       </div>
     </form>
+    <div v-if="verified">
+      <span style="font-size: 12px; color: green"
+        >*Successfully Registered</span
+      >
+    </div>
+    <div v-if="verified !== null && !verified">
+      <span style="font-size: 12px; color: red"
+        >*Please Confirm Your Password</span
+      >
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 @Component
-export default class Register extends Vue {}
+export default class Register extends Vue {
+  private email = "";
+  private username = "";
+  private password = "";
+  private confirmPassword = "";
+
+  @Prop({ default: false })
+  private emit!: boolean;
+
+  @Prop()
+  private verified!: boolean;
+
+  @Watch("emit")
+  emitInfo() {
+    if (this.emit) {
+      this.$emit("register", {
+        email: this.email,
+        username: this.username,
+        password: this.password,
+        confirmPassword: this.confirmPassword
+      });
+    }
+  }
+
+  @Watch("verified")
+  checkVerification() {
+    if (this.verified) {
+      this.clearForm();
+    } else {
+      console.log("Not verified");
+    }
+  }
+
+  clearForm() {
+    this.username = "";
+    this.email = "";
+    this.password = "";
+    this.confirmPassword = "";
+  }
+}
 </script>
 
 <style scoped lang="scss">

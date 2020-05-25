@@ -30,7 +30,12 @@
           <div class="card-body border-top-0">
             <h3 class="work-sans">Welcome!</h3>
             <login v-if="mode === 'login'" />
-            <register v-if="mode === 'register'" />
+            <register
+              v-if="mode === 'register'"
+              :emit="needRegInfo"
+              :verified="verified"
+              v-on:register="validateRegistration($event)"
+            />
           </div>
           <div class="card-footer">
             <button
@@ -42,6 +47,7 @@
             <button
               v-if="mode === 'register'"
               class="btn btn-secondary btn-rounded w-50 work-sans"
+              @click="askForInfo()"
             >
               Register
             </button>
@@ -56,14 +62,33 @@
 import { Component, Vue } from "vue-property-decorator";
 import Login from "@/components/Widgets/Login.vue";
 import Register from "@/components/Widgets/Register.vue";
+import { IRegister } from "@/Interfaces/Register";
 @Component({
   components: { Register, Login }
 })
 export default class Verification extends Vue {
   public mode = "login";
+  private needRegInfo = false;
+  private verified: boolean | null = null;
 
   public setMode(mode: string) {
     this.mode = mode;
+  }
+
+  askForInfo() {
+    this.needRegInfo = true;
+  }
+
+  public validateRegistration(regInfo: IRegister) {
+    console.log("Getting here");
+    console.log(regInfo);
+    if (regInfo.password === regInfo.confirmPassword) {
+      this.verified = true;
+      this.needRegInfo = false;
+      return;
+    }
+    this.verified = false;
+    this.needRegInfo = false;
   }
 }
 </script>
