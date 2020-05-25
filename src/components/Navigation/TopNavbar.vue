@@ -89,6 +89,7 @@ li:hover {
 .navtitle {
   font-family: "Work Sans", sans-serif;
   font-size: 25px;
+  font-weight: bold
 }
 
 @media (min-width: 320px) and (max-width: 450px) {
@@ -103,6 +104,9 @@ li:hover {
   }
   .ml-1 {
     margin-left: 0 !important;
+  }
+  .navtitle{
+    margin-right: 0 !important;
   }
 }
 </style>

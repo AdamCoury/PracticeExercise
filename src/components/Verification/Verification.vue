@@ -120,4 +120,10 @@ h3 {
   font-weight: bold;
   font-size: 20px;
 }
+
+@media (min-width: 320px) and (max-width: 450px) {
+  .card {
+    width: 100% !important;
+  }
+}
 </style>
