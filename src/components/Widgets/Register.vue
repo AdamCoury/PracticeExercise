@@ -101,8 +101,6 @@ export default class Register extends Vue {
   checkVerification() {
     if (this.verified) {
       this.clearForm();
-    } else {
-      console.log("Not verified");
     }
   }
 

@@ -80,8 +80,6 @@ export default class Verification extends Vue {
   }
 
   public validateRegistration(regInfo: IRegister) {
-    console.log("Getting here");
-    console.log(regInfo);
     if (regInfo.password === regInfo.confirmPassword) {
       this.verified = true;
       this.needRegInfo = false;
